@@ -2,64 +2,97 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <main className="relative h-screen w-full overflow-hidden">
+
+      {/* Background Image */}
+      <Image
+        src="/images/SLN_7011-scaled.webp"
+        alt="Namiryango students"
+        fill
+        priority
+        className="object-cover"
+      />
+
+      {/* OVERLAYS */}
+      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+
+      {/* NAVBAR */}
+      <nav className="absolute top-0 left-0 w-full z-20">
+        <div className="max-w-[1400px] mx-auto flex items-center justify-between px-12 h-[100px]">
+
+          {/* LOGO BLOCK */}
+          <div className="flex items-center gap-5 h-full">
+
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/images/NSS.png"
+              alt="Logo"
+              width={70}
+              height={70}
+              className="object-contain"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+            <div className="h-10 w-[1px] bg-white/50" />
+
+            <div className="text-white uppercase leading-tight">
+              <p className="font-bold text-[13px] tracking-[2px]">
+                Namiryango Senior
+              </p>
+              <p className="font-bold text-[13px] tracking-[2px]">
+                Secondary School
+              </p>
+            </div>
+          </div>
+
+          {/* NAV LINKS */}
+          <div className="hidden md:flex items-center gap-12 text-white text-[12px] font-semibold tracking-[2px] uppercase">
+            <a className="hover:opacity-70 transition">Our School</a>
+            <a className="hover:opacity-70 transition">Facilities</a>
+            <a className="hover:opacity-70 transition">News & Events</a>
+            <a className="hover:opacity-70 transition">Admissions</a>
+          </div>
+
+          {/* CTA */}
+          <button className="bg-white text-black px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wide hover:bg-gray-200 transition">
+            Enquire Now
+          </button>
         </div>
-      </main>
-    </div>
+      </nav>
+
+      {/* HERO */}
+      <div className="absolute inset-0 flex items-center z-10">
+        <div className="max-w-[1400px] mx-auto px-12 w-full">
+
+          <div className="max-w-xl text-white">
+
+            <p className="text-xs uppercase tracking-[4px] mb-6 opacity-80">
+              Excellence in Education
+            </p>
+
+            <h1 className="text-6xl md:text-7xl font-bold leading-[1.05] mb-8">
+              Namiryango <br />
+              Senior <br />
+              Secondary School
+            </h1>
+
+            <p className="text-lg md:text-xl mb-10 text-gray-200 leading-relaxed">
+              In God We Shall Achieve — shaping disciplined, confident future leaders.
+            </p>
+
+            <div className="flex gap-6">
+              <button className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
+                Apply Now
+              </button>
+
+              <button className="border border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">
+                Book a Visit
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </main>
   );
 }
