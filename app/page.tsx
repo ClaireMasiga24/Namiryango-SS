@@ -1,97 +1,173 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
-export default function Home() {
+export default function Page() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 80);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <main className="relative h-screen w-full overflow-hidden">
+    <main className="w-full bg-white">
 
-      {/* Background Image */}
-      <Image
-        src="/images/SLN_7011-scaled.webp"
-        alt="Namiryango students"
-        fill
-        priority
-        className="object-cover"
-      />
+      {/* ================= HERO ================= */}
+      <section className="relative h-screen w-full overflow-hidden">
 
-      {/* OVERLAYS */}
-      <div className="absolute inset-0 bg-black/50" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+        {/* Background */}
+        <Image
+          src="/images/SLN_7011-scaled.webp"
+          alt="Students"
+          fill
+          priority
+          className="object-cover"
+        />
 
-      {/* NAVBAR */}
-      <nav className="absolute top-0 left-0 w-full z-20">
-        <div className="max-w-[1400px] mx-auto flex items-center justify-between px-12 h-[100px]">
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
 
-          {/* LOGO BLOCK */}
-          <div className="flex items-center gap-5 h-full">
+        {/* ================= NAVBAR ================= */}
+        <nav
+          className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+            scrolled ? "bg-white shadow-md" : "bg-transparent"
+          }`}
+        >
+          <div className="max-w-[1500px] mx-auto flex items-center justify-between px-16 h-[100px]">
 
+            {/* LOGO */}
+            <div className="flex items-center gap-6">
+              <Image
+                src="/images/NSS.png"
+                alt="Logo"
+                width={90}
+                height={90}
+                className="object-contain"
+              />
+
+              <div
+                className={`h-10 w-[1px] ${
+                  scrolled ? "bg-[#1F6F78]/30" : "bg-white/40"
+                }`}
+              />
+
+              <div
+                className={`uppercase leading-tight ${
+                  scrolled ? "text-[#1F6F78]" : "text-white"
+                }`}
+              >
+                <p className="font-bold text-[13px] tracking-[2.5px]">
+                  NAMIRYANGO SENIOR
+                </p>
+                <p className="font-bold text-[13px] tracking-[2.5px]">
+                  SECONDARY SCHOOL
+                </p>
+              </div>
+            </div>
+
+            {/* NAV LINKS */}
+            <div
+              className={`hidden md:flex items-center gap-16 text-[12px] font-semibold tracking-[2.5px] uppercase ${
+                scrolled ? "text-[#1F6F78]" : "text-white"
+              }`}
+            >
+              <a className="hover:opacity-70">Our School</a>
+              <a className="hover:opacity-70">Facilities</a>
+              <a className="hover:opacity-70">News & Events</a>
+              <a className="hover:opacity-70">Admissions</a>
+            </div>
+
+            {/* CTA */}
+            <button
+              className={`px-7 py-3 rounded-full text-xs font-semibold uppercase tracking-wide transition ${
+                scrolled
+                  ? "bg-[#1F6F78] text-white hover:bg-[#185a61]"
+                  : "bg-white text-black hover:bg-gray-200"
+              }`}
+            >
+              Enquire Now
+            </button>
+          </div>
+        </nav>
+
+        {/* HERO TEXT */}
+        <div className="absolute inset-0 flex items-center z-20">
+          <div className="max-w-[1500px] mx-auto px-16 w-full">
+            <div className="max-w-2xl text-white mt-32">
+
+              <p className="text-[11px] uppercase tracking-[5px] mb-6 text-gray-300">
+                Excellence in Education
+              </p>
+
+              <h1 className="text-[72px] md:text-[88px] font-bold leading-[1.05] mb-8">
+                Namiryango <br />
+                Senior Secondary <br />
+                School
+              </h1>
+
+              <p className="text-lg text-gray-300 mb-10 leading-relaxed max-w-xl">
+                In God We Shall Achieve — shaping disciplined, confident future leaders.
+              </p>
+
+              <div className="flex gap-6">
+                <button className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
+                  Apply Now
+                </button>
+
+                <button className="border border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">
+                  Book a Visit
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= ABOUT SECTION ================= */}
+      <section className="bg-white py-32">
+
+        <div className="max-w-[1400px] mx-auto px-16 grid md:grid-cols-2 gap-20 items-start">
+
+          {/* IMAGE */}
+          <div className="relative w-full h-[520px]">
             <Image
-              src="/images/NSS.png"
-              alt="Logo"
-              width={70}
-              height={70}
-              className="object-contain"
+              src="/images/SLN_7081-scaled.webp"
+              alt="Students"
+              fill
+              className="object-cover"
             />
-
-            <div className="h-10 w-[1px] bg-white/50" />
-
-            <div className="text-white uppercase leading-tight">
-              <p className="font-bold text-[13px] tracking-[2px]">
-                Namiryango Senior
-              </p>
-              <p className="font-bold text-[13px] tracking-[2px]">
-                Secondary School
-              </p>
-            </div>
           </div>
 
-          {/* NAV LINKS */}
-          <div className="hidden md:flex items-center gap-12 text-white text-[12px] font-semibold tracking-[2px] uppercase">
-            <a className="hover:opacity-70 transition">Our School</a>
-            <a className="hover:opacity-70 transition">Facilities</a>
-            <a className="hover:opacity-70 transition">News & Events</a>
-            <a className="hover:opacity-70 transition">Admissions</a>
-          </div>
+          {/* TEXT */}
+          <div>
 
-          {/* CTA */}
-          <button className="bg-white text-black px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wide hover:bg-gray-200 transition">
-            Enquire Now
-          </button>
-        </div>
-      </nav>
+            {/* HEADING */}
+            <h2 className="text-[44px] font-light text-[#1F6F78] leading-tight mb-4">
+              Welcome to Namiryango Senior Secondary School
+            </h2>
 
-      {/* HERO */}
-      <div className="absolute inset-0 flex items-center z-10">
-        <div className="max-w-[1400px] mx-auto px-12 w-full">
+            {/* FULL UNDERLINE */}
+            <div className="w-full h-[1px] bg-[#c5a46d] mb-8" />
 
-          <div className="max-w-xl text-white">
-
-            <p className="text-xs uppercase tracking-[4px] mb-6 opacity-80">
-              Excellence in Education
+            <p className="text-[17px] leading-[1.9] text-gray-700 mb-6">
+              At Namiryango SSS, we are committed to providing quality education that nurtures well-rounded, morally upright citizens. Founded in 1998, our school has grown into a center of academic excellence, offering a wide range of academic programs, extracurricular activities, and state-of-the-art facilities.
             </p>
 
-            <h1 className="text-6xl md:text-7xl font-bold leading-[1.05] mb-8">
-              Namiryango <br />
-              Senior <br />
-              Secondary School
-            </h1>
-
-            <p className="text-lg md:text-xl mb-10 text-gray-200 leading-relaxed">
-              In God We Shall Achieve — shaping disciplined, confident future leaders.
+            <p className="text-[17px] leading-[1.9] text-gray-700">
+              Our students benefit from a structured and disciplined environment designed to foster intellectual growth, leadership, and character. At Namiryango, every learner is supported to become confident, responsible, and impactful in society.
             </p>
-
-            <div className="flex gap-6">
-              <button className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
-                Apply Now
-              </button>
-
-              <button className="border border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-black transition">
-                Book a Visit
-              </button>
-            </div>
 
           </div>
         </div>
-      </div>
+      </section>
 
     </main>
   );
