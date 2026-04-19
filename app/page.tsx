@@ -33,7 +33,7 @@ export default function Page() {
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
-        {/* NAVBAR (FIXED) */}
+        {/* NAVBAR */}
         <nav
           className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
             scrolled ? "bg-white shadow-md" : "bg-transparent"
@@ -41,7 +41,6 @@ export default function Page() {
         >
           <div className="max-w-[1500px] mx-auto flex items-center justify-between px-16 h-[100px]">
 
-            {/* LEFT */}
             <div className="flex items-center gap-6">
               <Image src="/images/NSS.png" alt="Logo" width={90} height={90} />
 
@@ -61,7 +60,6 @@ export default function Page() {
               </div>
             </div>
 
-            {/* RIGHT (ALL IN ONE LINE NOW) */}
             <div className={`hidden md:flex items-center gap-12 text-[12px] font-semibold tracking-[2.5px] uppercase ${
               scrolled ? "text-[#1F6F78]" : "text-white"
             }`}>
@@ -128,13 +126,19 @@ export default function Page() {
 
             <div className="w-full h-[1px] bg-[#c5a46d] mb-8" />
 
+            {/* 🔥 ONLY THING IMPROVED */}
             <p className="text-[17px] leading-[1.9] text-gray-700 mb-6">
               At Namiryango SSS, we are committed to providing quality education that nurtures well-rounded, morally upright citizens.
             </p>
 
-            <p className="text-[17px] leading-[1.9] text-gray-700">
-              Our students benefit from a structured and disciplined environment designed to foster intellectual growth, leadership, and character.
+            <p className="text-[17px] leading-[1.9] text-gray-700 mb-6">
+              Founded in 1998, our school has grown into a center of academic excellence, offering a wide range of academic programs, extracurricular activities, and state-of-the-art facilities.
             </p>
+
+            <p className="text-[17px] leading-[1.9] text-gray-700">
+              Our students thrive in a structured environment designed to foster intellectual growth, leadership, and character — preparing them to excel both locally and globally.
+            </p>
+
           </div>
 
         </div>
