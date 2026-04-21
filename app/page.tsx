@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link"; // ✅ ADDED
+import Link from "next/link";
 
 export default function Page() {
-  const [scrolled, setScrolled] = useState<boolean>(false); // ✅ typed (safe for TS)
+  const [scrolled, setScrolled] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,18 +40,22 @@ export default function Page() {
             scrolled ? "bg-white shadow-md" : "bg-transparent"
           }`}
         >
-          <div className="max-w-[1500px] mx-auto flex items-center justify-between px-16 h-[100px]">
+          <div className="max-w-[1200px] xl:max-w-[1500px] mx-auto flex items-center justify-between px-6 md:px-10 lg:px-16 h-[100px]">
 
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-3 lg:gap-6">
               <Image src="/images/NSS.png" alt="Logo" width={90} height={90} />
 
-              <div className={`h-10 w-[1px] ${
-                scrolled ? "bg-[#1F6F78]/30" : "bg-white/40"
-              }`} />
+              <div
+                className={`h-10 w-[1px] ${
+                  scrolled ? "bg-[#1F6F78]/30" : "bg-white/40"
+                }`}
+              />
 
-              <div className={`uppercase leading-tight ${
-                scrolled ? "text-[#1F6F78]" : "text-white"
-              }`}>
+              <div
+                className={`uppercase leading-tight ${
+                  scrolled ? "text-[#1F6F78]" : "text-white"
+                }`}
+              >
                 <p className="font-bold text-[13px] tracking-[2.5px]">
                   NAMIRYANGO SENIOR
                 </p>
@@ -61,32 +65,36 @@ export default function Page() {
               </div>
             </div>
 
-            <div className={`hidden md:flex items-center gap-12 text-[12px] font-semibold tracking-[2.5px] uppercase ${
-              scrolled ? "text-[#1F6F78]" : "text-white"
-            }`}>
+            <div
+              className={`hidden md:flex items-center gap-6 lg:gap-12 text-[12px] font-semibold tracking-[2.5px] uppercase whitespace-nowrap ${
+                scrolled ? "text-[#1F6F78]" : "text-white"
+              }`}
+            >
               <a>OUR SCHOOL</a>
               <a>FACILITIES</a>
               <a>NEWS & EVENTS</a>
               <a>ADMISSIONS</a>
 
-              {/* ✅ FIXED LOGIN ONLY */}
               <Link href="/login" className="cursor-pointer">
                 LOGIN
               </Link>
 
-              <button className={`ml-2 px-7 py-3 rounded-full text-xs font-semibold uppercase tracking-[2.5px] ${
-                scrolled ? "bg-[#1F6F78] text-white" : "bg-white text-black"
-              }`}>
+              <button
+                className={`ml-2 px-7 py-3 rounded-full text-xs font-semibold uppercase tracking-[2.5px] ${
+                  scrolled
+                    ? "bg-[#1F6F78] text-white"
+                    : "bg-white text-black"
+                }`}
+              >
                 ENQUIRE NOW
               </button>
             </div>
-
           </div>
         </nav>
 
         {/* HERO TEXT */}
         <div className="absolute inset-0 flex items-center z-20">
-          <div className="max-w-[1500px] mx-auto px-16 w-full">
+          <div className="max-w-[1200px] xl:max-w-[1500px] mx-auto px-6 md:px-10 lg:px-16 w-full">
             <div className="max-w-2xl text-white mt-32">
 
               <p className="text-[11px] uppercase tracking-[6px] mb-6 text-white/60">
@@ -118,10 +126,15 @@ export default function Page() {
 
       {/* ================= ABOUT SECTION ================= */}
       <section className="bg-white py-32">
-        <div className="max-w-[1400px] mx-auto px-16 grid md:grid-cols-2 gap-20 items-start">
+        <div className="max-w-[1200px] xl:max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
 
           <div className="relative w-full h-[520px]">
-            <Image src="/images/SLN_7081-scaled.webp" alt="Students" fill className="object-cover" />
+            <Image
+              src="/images/SLN_7081-scaled.webp"
+              alt="Students"
+              fill
+              className="object-cover"
+            />
           </div>
 
           <div>
@@ -142,7 +155,6 @@ export default function Page() {
             <p className="text-[17px] leading-[1.9] text-gray-700">
               Our students thrive in a structured environment designed to foster intellectual growth, leadership, and character — preparing them to excel both locally and globally.
             </p>
-
           </div>
 
         </div>
@@ -150,7 +162,7 @@ export default function Page() {
 
       {/* ================= FOOTER ================= */}
       <footer className="bg-[#0f172a] text-white py-16">
-        <div className="max-w-[1400px] mx-auto px-16 grid md:grid-cols-3 gap-12">
+        <div className="max-w-[1200px] xl:max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 grid md:grid-cols-3 gap-8 lg:gap-12">
 
           <div>
             <div className="flex items-center gap-4 mb-4">
