@@ -23,7 +23,7 @@ export default function Page() {
       <section className="relative h-screen w-full overflow-hidden">
 
         <Image
-          src="/images/SLN_7011-scaled.webp"
+          src="/images/SLN_7011-scaled (1).webp"
           alt="Students"
           fill
           priority
