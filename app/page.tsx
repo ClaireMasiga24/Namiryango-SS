@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link"; // ✅ ADDED
 
 export default function Page() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState<boolean>(false); // ✅ typed (safe for TS)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,7 +68,11 @@ export default function Page() {
               <a>FACILITIES</a>
               <a>NEWS & EVENTS</a>
               <a>ADMISSIONS</a>
-              <a>LOGIN</a>
+
+              {/* ✅ FIXED LOGIN ONLY */}
+              <Link href="/login" className="cursor-pointer">
+                LOGIN
+              </Link>
 
               <button className={`ml-2 px-7 py-3 rounded-full text-xs font-semibold uppercase tracking-[2.5px] ${
                 scrolled ? "bg-[#1F6F78] text-white" : "bg-white text-black"
@@ -126,7 +131,6 @@ export default function Page() {
 
             <div className="w-full h-[1px] bg-[#c5a46d] mb-8" />
 
-            {/* 🔥 ONLY THING IMPROVED */}
             <p className="text-[17px] leading-[1.9] text-gray-700 mb-6">
               At Namiryango SSS, we are committed to providing quality education that nurtures well-rounded, morally upright citizens.
             </p>
