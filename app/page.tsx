@@ -42,31 +42,33 @@ export default function Page() {
         >
           <div className="max-w-[1200px] xl:max-w-[1500px] mx-auto flex items-center justify-between px-6 md:px-10 lg:px-16 h-[100px]">
 
-            <div className="flex items-center gap-3 lg:gap-6">
-              <Image src="/images/NSS.png" alt="Logo" width={90} height={90} />
+            {/* LOGO GROUP */}
+            <div className="flex items-center gap-3 shrink-0">
+              <Image src="/images/NSS.png" alt="Logo" width={60} height={60} />
 
               <div
-                className={`h-10 w-[1px] ${
+                className={`h-8 w-[1px] ${
                   scrolled ? "bg-[#1F6F78]/30" : "bg-white/40"
                 }`}
               />
 
               <div
-                className={`uppercase leading-tight ${
+                className={`uppercase leading-tight whitespace-nowrap ${
                   scrolled ? "text-[#1F6F78]" : "text-white"
                 }`}
               >
-                <p className="font-bold text-[13px] tracking-[2.5px]">
+                <p className="font-bold text-[11px] tracking-[2px]">
                   NAMIRYANGO SENIOR
                 </p>
-                <p className="font-bold text-[13px] tracking-[2.5px]">
+                <p className="font-bold text-[11px] tracking-[2px]">
                   SECONDARY SCHOOL
                 </p>
               </div>
             </div>
 
+            {/* NAV LINKS */}
             <div
-              className={`hidden md:flex items-center gap-6 lg:gap-12 text-[12px] font-semibold tracking-[2.5px] uppercase whitespace-nowrap ${
+              className={`hidden md:flex items-center gap-6 lg:gap-10 text-[11px] font-semibold tracking-[2px] uppercase whitespace-nowrap ${
                 scrolled ? "text-[#1F6F78]" : "text-white"
               }`}
             >
